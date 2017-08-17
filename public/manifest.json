@@ -1,0 +1,22 @@
+{
+  "short_name": "newsFeed",
+  "name": "News Feed made from start",
+  "description":"aquele newsFeed que voce respeita",
+  "icons": [
+      {
+      "src": "images/launcher2x.png",
+      "type": "image/png",
+      "sizes": "96x96 48x48"
+    },
+    {
+      "src": "images/launcher4x.png",
+      "type": "image/png",
+      "sizes": "144x144 192x192"
+    }
+  ],
+  "display":"standalone",
+  "start_url": "/",
+  "background_color":"#2196f3",
+  "theme_color":"#2196f3",
+  "orientation":"portrait"
+}
