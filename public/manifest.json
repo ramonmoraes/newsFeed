@@ -4,12 +4,12 @@
   "description":"aquele newsFeed que voce respeita",
   "icons": [
       {
-      "src": "images/launcher2x.png",
+      "src": "images/launcher2xPng2.png",
       "type": "image/png",
       "sizes": "96x96 48x48"
     },
     {
-      "src": "images/launcher4x.png",
+      "src": "images/launcher4xPng2.png",
       "type": "image/png",
       "sizes": "144x144 192x192"
     }

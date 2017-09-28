@@ -1,4 +1,4 @@
-const cacheName = 'v4';
+const cacheName = 'v1';
 const cacheFiles = [
   '/',
   './',
@@ -12,30 +12,29 @@ const cacheFiles = [
   './favicon.ico'
 ];
 
-self.addEventListener('install', function(ev){
-    ev.waitUntil(
-      caches.open(cacheName).then(function(caches){
-        console.log('aqui');
-        return caches.addAll(cacheFiles);
-      })
-    )
-});
-self.addEventListener('activate', function(ev){
-  ev.waitUntil(
-    caches.keys().then(function(keyList) {
-      return Promise.all(keyList.map(function(key) {
-        if (cacheName.indexOf(key) === -1) {
-          return caches.delete(key);
-        }
-      }));
+self.addEventListener("install" , (event)=>{
+  event.waitUntil(
+    caches.open("cacheFiles")
+    .then( (cache)=>{
+      cache.addAll(cacheFiles)
     })
   );
-});
+}); // <-- Install Ends
 
-self.addEventListener('fetch', function(ev){
+self.addEventListener("activate" , (event)=>{
+  console.log("activate");
+}); // <-- Activate Ends
 
-    ev.respondWith(
-      caches.match(ev.request)
-    );
+self.addEventListener("fetch", (event)=>{
+  event.respondWith(
+    caches.match(event.request)
+    .then( (resFromTheCache)=>{
+      if(resFromTheCache){
+        return resFromTheCache;
+      } else{
+        return fetch(event.request);
+      }
+    })
 
-});
+  )
+}); // <-- Fecth Ends
