@@ -1,23 +1,23 @@
-// if('serviceWorker' in navigator){
-//   navigator.serviceWorker
-//     .register('./service-worker.js', {scope:'./*'})
-//     .then(function(x){
-//         console.log('[serviceWorker] Registrado');
-//     })
-//     .catch(function(err){
-//       console.log(err);
-//     })
-// }else{
-//   console.log('n tem');
-// }
-
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/service-worker.js');
   });
 }
 
+const get =(func)=>{
+    fetch('/api/newsfeed')
+    .then( (x)=>{
+        x.json()
+        .then( (res) => {
+          func(res);
+        })
+    });
+}
 
-const getNews = function(){
-  console.log('getNews');
+window.onload = function(){
+  let refreshBtn = document.getElementById('refreshBtn');
+  refreshBtn.addEventListener("click", ()=>{
+    get(createStreamOfCards);
+  });
+  get(createStreamOfCards);
 }

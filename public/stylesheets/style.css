@@ -9,7 +9,7 @@ a {
 }
 
 .menuTopShell{
-  height:50px;
+  height:66px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,14 +22,16 @@ a {
 .menuBtnWrapper{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 60%;
   max-width: 700px;
   min-width: 300px;
   cursor: pointer;
+  height: 100%;
 }
 .menuBtn{
-  height: 20px;
-  padding: 10px;
+  height: 100%;
+  width: 66px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,30 +41,34 @@ a {
   color: #444;
 }
 .menuBtn:hover{
-  background-color: rgba(0,0,0,0.15);
-}
+  background-color: #1183ef;
+  transition: 0.3 ease;
+  }
 
 
 .refreshBtn{
-  display: flex;justify-content: center;align-items: center;
+  display: none; /*Original was flex*/
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  border: 1px solid #444;
   border-radius: 50%;
-  box-shadow: 0px 1px 1px 0 #ddd;
+  box-shadow: 0px 2px 4px 1px #777;
   padding: 1px;
   background: white;
+  margin: 0 15vw;
   }
 .refreshBtn:active{
-  transition: 0.15s;
-  transform: scale(1.15);
-  box-shadow: 0px 2px 3px 0 #bbb;
+  transition: 0.1s ease;
+  position: relative;
+  bottom: -2px;
+  box-shadow: 0px 2px 2px 0px #000;
 }
 .refreshBtnWrapper{
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-end;
   position: fixed;
-  bottom: 10vh;
+  bottom: 5vh;
 }
 .content{
   display: flex;
@@ -70,32 +76,38 @@ a {
 }
 .contentBoxWrapper{
   width: 700px;
-  max-width: 95%;
   min-width: 300px;
-  background-color:
 }
-.contentBox{
-  padding: 10px;
-  box-shadow: 0px 1px 1px 0 #777;
-  background-color: white;
+.card{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3vh;
+  max-width: 90%;
+  height: 200px;
+  max-height: 30vh;
+  color: #222;
+  padding: 10px;
+  margin: 3vh auto 0 auto;
+  box-shadow: 0px 1px 1px 0 #777;
+  background-color: white;
+  overflow: hidden;
+  transition: 2s;
 }
-.contentIcon{
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.cardIcon{
+  max-width: 20%;
 }
-.contentInfo{
+
+.cardInfo{
   max-width: 80%;
+  margin: auto;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
-.contentDate p{
+.cardDate p{
   margin: 0;
 }

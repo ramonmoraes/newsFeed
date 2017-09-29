@@ -9,7 +9,6 @@ const cacheFiles = [
   './images/icons/home.png',
   './images/icons/perfil.png',
   './images/icons/refresh.png',
-  './favicon.ico'
 ];
 
 self.addEventListener("install" , (event)=>{
