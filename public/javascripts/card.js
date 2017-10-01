@@ -7,6 +7,7 @@ function createNewCard (info, place){
     activated : false
   }
 
+
   this.shape=(info)=>{
     let card = template.content.cloneNode("true");
     title = card.querySelector(".cardH1");
@@ -14,6 +15,7 @@ function createNewCard (info, place){
     content = card.querySelector(".cardText");
     icon = card.querySelector(".cardIcon")
 
+    this.actions(card.querySelector('.card'));
     title.innerHTML='<strong><h1>'+info.title+'</strong></h1>'
     date.innerHTML='<p>' +info.date +'</p>';
     icon.src=info.icon;
@@ -21,17 +23,25 @@ function createNewCard (info, place){
     return (card);
   }
 
-  this.actions =(ele)=>{
-    console.log('q');
-    ele.addEventListener('click', function(){
-      console.log('oi');
+  this.actions =(element)=> {
+    element.addEventListener('click', ()=>{
+      toggleActivated(element)
     });
-    return ele
+  }
+
+  this.toggleActivated =(ele)=> {
+    if(this.atributes.activated){
+      console.log(ele.clientHeight);
+      this.atributes.activated=false;
+      ele.classList.remove("cardActivated")
+    }else{
+      this.atributes.activated=true;
+      ele.classList.add("cardActivated")
+    }
   }
 
   this.render=()=>{
     let card = shape(atributes)
-    card = actions(card)
     place.appendChild(card);
   }
 

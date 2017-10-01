@@ -1,14 +1,14 @@
-html,body{margin: 0;padding: 0;}
-body {
+html,body {margin: 0;padding: 0;}
+body  {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #eeefef;
 }
 
-a {
+a  {
   color: #00B7FF;
 }
 
-.menuTopShell{
+.menuTopShell {
   height:66px;
   display: flex;
   justify-content: center;
@@ -16,10 +16,11 @@ a {
   box-shadow: 0px 1px 1px 0 #ddd;
   position: sticky;
   top:0;
+  z-index: 100;
   background-color: #2196f3;
-  }
+}
 
-.menuBtnWrapper{
+.menuBtnWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,24 +30,24 @@ a {
   cursor: pointer;
   height: 100%;
 }
-.menuBtn{
+.menuBtn {
   height: 100%;
   width: 66px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.menuBtn a{
+.menuBtn a {
   text-decoration: none;
   color: #444;
 }
-.menuBtn:hover{
+.menuBtn:hover {
   background-color: #1183ef;
   transition: 0.3 ease;
-  }
+}
 
 
-.refreshBtn{
+.refreshBtn {
   display: none; /*Original was flex*/
   justify-content: center;
   align-items: center;
@@ -56,49 +57,74 @@ a {
   padding: 1px;
   background: white;
   margin: 0 15vw;
-  }
-.refreshBtn:active{
+}
+.refreshBtn:active {
   transition: 0.1s ease;
   position: relative;
   bottom: -2px;
   box-shadow: 0px 2px 2px 0px #000;
 }
-.refreshBtnWrapper{
+.refreshBtnWrapper {
   display: flex;
   width: 100%;
   justify-content: flex-end;
   position: fixed;
   bottom: 5vh;
 }
-.content{
+.content {
   display: flex;
   justify-content: center;
 }
-.contentBoxWrapper{
+.contentBoxWrapper {
   width: 700px;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
-.card{
+
+.card {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 90%;
   height: 200px;
-  max-height: 30vh;
   color: #222;
   padding: 10px;
   margin: 3vh auto 0 auto;
   box-shadow: 0px 1px 1px 0 #777;
   background-color: white;
   overflow: hidden;
-  transition: 2s;
+  transition: 0.5s ease;
 }
-
-.cardIcon{
+.ground{
+  border: 1px solid red;
+  height: 10px;
+  background-color: rgba(255,255,255,0.4)
+}
+.cardActivated {
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 80vh;
+  width: 90%;
+  overflow-y: auto;
+  box-shadow: 0px 2px 10px 1px #999;
+}
+.cardActivated h1{
+  /*margin-top: 0;*/
+}
+.cardActivated .cardInfo{
+  height: 80%;
+  justify-content: flex-start;
+}
+.cardActivated .cardIcon{
+  width: 150px;
+}
+.cardIcon {
   max-width: 20%;
+  border-radius: 50%;
 }
 
-.cardInfo{
+.cardInfo {
   max-width: 80%;
   margin: auto;
   padding: 0 10px;
@@ -108,6 +134,9 @@ a {
   align-items: center;
   overflow: hidden;
 }
-.cardDate p{
+.cardDate p {
   margin: 0;
+}
+.teste {
+  background: red;
 }
