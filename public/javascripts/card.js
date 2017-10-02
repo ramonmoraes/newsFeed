@@ -19,7 +19,7 @@ function createNewCard (info, place){
     title.innerHTML='<strong><h1>'+info.title+'</strong></h1>'
     date.innerHTML='<p>' +info.date +'</p>';
     icon.src=info.icon;
-    content.innerHTML ='<p>' + info.content +'</p>';
+    content.innerHTML ='<a>' + info.content +'</a>';
     return (card);
   }
 
@@ -31,7 +31,6 @@ function createNewCard (info, place){
 
   this.toggleActivated =(ele)=> {
     if(this.atributes.activated){
-      console.log(ele.clientHeight);
       this.atributes.activated=false;
       ele.classList.remove("cardActivated")
     }else{

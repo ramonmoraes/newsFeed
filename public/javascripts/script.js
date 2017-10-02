@@ -11,8 +11,8 @@ const get =(func)=>{
     fetch(proxyurl + url)
     .then( (x)=>{
       x.text().then( (res)=>{
-        // a partir da posição 1 começam as infos
-        xmlConverter(res);
+        infos = xmlConverter(res);
+        func(infos)
       })
 
     });
