@@ -5,14 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, inicial-scale=1.0"=>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
     <meta name="theme-color" content="#444">
+
     <script src="./index.js"></script>
+    <link rel='stylesheet' href='./scss/base.scss'>
     <title> News Feed </title>
 </head>
 
-<body>
-    <h1>News Feed</h1>
-</body>
+<body class="AppShell">
+    <nav class="TopBar">
+        <button class="TopBar-btn">Home</button>
+        <button class="TopBar-btn">Permissions</button>
+    </nav>
 
+        <div class="AppShell-feed">
+            <div class="NewsCard">
+                <div class="NewsCard-img"></div>
+                <div class="NewsCard-infos">
+                    <h1>Title may be big</h1>
+                    <p>Jordan Peele (Corra!) vai coescrever uma série cômica de ficção científica para o YouTube.
+
+                        Weird City terá roteiros de Peele e Charlie Sanders (Key and Peele) e mostrará diversas histórias ambientadas em um futuro não tão distante, na cidade de Weird, seguindo o formato de antologia. Mais detalhes não foram revelados por enquanto.
+                        
+                        A série estreia no YouTube Premium em 2019.</p>
+                </div>
+            </div>
+        </div>
+</body>
 </html>
