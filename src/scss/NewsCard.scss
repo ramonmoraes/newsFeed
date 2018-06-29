@@ -1,0 +1,12 @@
+@import "_variables";
+
+.NewsCard {
+    width: 90vw;
+    max-width: 500px;
+
+    padding: $spacer $spacer * 2;
+    margin: $spacer * 2 auto;  
+
+    background-color: $componentColor;
+    box-shadow: $depth1;
+}
