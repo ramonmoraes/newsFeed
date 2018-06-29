@@ -1,12 +1,40 @@
 @import "_variables";
 
 .NewsCard {
-    max-width: 80%;
-    width: 500px;
+  max-width: 80%;
+  width: 500px;
+  max-height: 550px;
 
-    padding: $spacer $spacer * 2;
-    margin: $spacer * 2 auto;  
+  padding: $spacer $spacer * 2;
+  margin: $spacer * 2 auto;
 
-    background-color: $componentColor;
-    box-shadow: $depth1;
+  background-color: $componentColor;
+  box-shadow: $depth1;
+
+  display: flex;
+  &-infos {
+    width: 100%;
+
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-align: justify;
+    }
+  }
+
+  &-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 3 * $spacer;
+    max-height: 50%;
+  }
+
+  &-img {
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+  }
 }

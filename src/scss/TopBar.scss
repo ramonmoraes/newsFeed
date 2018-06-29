@@ -1,15 +1,18 @@
 @import "_variables";
 
 .TopBar {
-    height: 50px;
-    display:flex;
-    align-content: center;
-    justify-content: center;
-    
-    background-color: $componentColor;
-    box-shadow: $depth1;
+  height: 50px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 
-    &-btn {
-        padding: 0 $spacer * 2;
-    }
+  position: sticky;
+  top: 0px;
+
+  background-color: $componentColor;
+  box-shadow: $depth1;
+
+  &-btn {
+    padding: 0 $spacer * 2;
+  }
 }
