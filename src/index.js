@@ -1,17 +1,8 @@
+import CardSnippet from './components/CardSnippet';
+
 const appendToFeed = ele => {
   const feed = document.querySelector(".AppShell-feed");
   feed.appendChild(ele);
-};
-
-const createCard = (jsonInfo = {}) => {
-    console.log(jsonInfo);
-  const cardSkeleton = document.querySelector("#card-skeleton").cloneNode(true);
-  const title = cardSkeleton.querySelector("h1");
-  const paragraph = cardSkeleton.querySelector("p");
-    
-  title.innerHTML = jsonInfo.title;
-  paragraph.innerHTML = jsonInfo.paragraph;
-  return cardSkeleton;
 };
 
 const mockData = [
@@ -25,4 +16,4 @@ const mockData = [
     }
 ];
 
-mockData.forEach(card => appendToFeed(createCard(card)));
+mockData.forEach(card => appendToFeed(CardSnippet(card)));
