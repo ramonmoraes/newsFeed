@@ -1,4 +1,5 @@
 import CardSnippet from "./components/CardSnippet";
+import registerSw from "./serviceWorker/register";
 
 const appendToFeed = ele => {
   const feed = document.querySelector(".AppShell-feed");
@@ -23,3 +24,5 @@ const mockData = [
 ];
 
 mockData.forEach(card => appendToFeed(CardSnippet(card)));
+
+registerSw();

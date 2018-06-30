@@ -3,6 +3,7 @@
 const CardSnippet = (jsonInfo = {}) => {
   const cardSkeleton = document.querySelector("#card-skeleton").cloneNode(true);
   const infos = cardSkeleton.querySelector(".NewsCard-infos");
+  
   const createCard = () => {
     const title = infos.querySelector("h1");
     const paragraph = infos.querySelector("p");
