@@ -1,20 +1,12 @@
-const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+      bundle: './src/index.js',
+      sw: './src/serviceWorker/service-worker.js',
+    },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
-  },
-  devServer: {
-    contentBase: "./dist"
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'NewsFeed',
-      template: './src/index.html',
-      filename: 'index.html'
-    })
-  ]
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
+  }
 };
