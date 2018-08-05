@@ -1,3 +1,4 @@
+import "./scss/base.scss";
 import CardSnippet from "./components/CardSnippet";
 import registerSw from "./serviceWorker/register";
 

@@ -11,11 +11,10 @@ module.exports = {
   entry: {
     bundle: './src/index.js',
     sw: './src/serviceWorker/register.js',
-    style: './src/scss/base.scss'
   },
   output: {
     path: path.resolve(__dirname, distributionFolderName),
-    filename: '[name].js'
+    filename: '[name]-[hash].js'
   },
   module: {
     rules: [
