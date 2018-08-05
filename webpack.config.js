@@ -1,8 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
+
+const distributionFolderName = 'dist';
 
 module.exports = {
   entry: {
@@ -11,7 +14,7 @@ module.exports = {
     style: './src/scss/base.scss'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, distributionFolderName),
     filename: '[name].js'
   },
   module: {
@@ -33,6 +36,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css'
-    })
+    }),
+    new CleanWebpackPlugin(distributionFolderName),
   ]
 };
