@@ -19,9 +19,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // creates style nodes from JS strings
-          'css-loader', // translates CSS into CommonJS
-          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
