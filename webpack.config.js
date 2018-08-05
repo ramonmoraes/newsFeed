@@ -12,11 +12,12 @@ module.exports = (_, argv) => {
   const webpackConfig = {
     entry: {
       bundle: "./src/index.js",
-      sw: "./src/serviceWorker/initSw.js"
+      sw: "./src/serviceWorker/initSw.js",
     },
     output: {
       path: path.resolve(__dirname, distributionFolderName),
-      filename: isDev ? "[name].js" : "[name]-[hash].js"
+      filename: isDev ? "[name].js" : "[name]-[hash].js",
+      globalObject: 'this',
     },
     module: {
       rules: [
