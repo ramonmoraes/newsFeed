@@ -1,24 +1,27 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    bundle: "./src/index.js",
-    sw: "./src/serviceWorker/register.js",
-    style: "./src/scss/base.scss"
+    bundle: './src/index.js',
+    sw: './src/serviceWorker/register.js',
+    style: './src/scss/base.scss'
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
+          'sass-loader' // compiles Sass to CSS, using Node Sass by default
         ]
       }
     ]
@@ -27,6 +30,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'NewsFeed',
       template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
     })
   ]
 };
