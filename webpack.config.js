@@ -8,11 +8,11 @@ const distributionFolderName = "dist";
 module.exports = (_, argv) => {
   const env = argv.mode || "development";
   const isDev = env === "development";
-
+  console.log("The env mode was setted to: " + env + "\n");
   const webpackConfig = {
     entry: {
       bundle: "./src/index.js",
-      sw: "./src/serviceWorker/register.js"
+      sw: "./src/serviceWorker/initSw.js"
     },
     output: {
       path: path.resolve(__dirname, distributionFolderName),
@@ -23,7 +23,7 @@ module.exports = (_, argv) => {
         {
           test: /\.scss$/,
           use: [
-            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            MiniCssExtractPlugin.loader,
             "css-loader",
             "sass-loader"
           ]
