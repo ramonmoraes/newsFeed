@@ -4,17 +4,23 @@
   "description": "",
   "main": "index.html",
   "scripts": {
+    "web": "webpack-dev-server --watch --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel src/index.html --open",
-    "build": "parcel build /src/index.html"
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production"
   },
   "author": "Ramon Moraes @github/ramonmoraes",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-runtime": "^6.26.0",
-    "node-sass": "4.9.0",
-    "parcel-bundler": "1.8.1"
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   }
 }
