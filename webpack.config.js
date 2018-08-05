@@ -1,41 +1,46 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
-const isDev = process.env.NODE_ENV === 'development';
+const distributionFolderName = "dist";
 
-const distributionFolderName = 'dist';
+module.exports = (_, argv) => {
+  const env = argv.mode || "development";
+  const isDev = env === "development";
 
-module.exports = {
-  entry: {
-    bundle: './src/index.js',
-    sw: './src/serviceWorker/register.js',
-  },
-  output: {
-    path: path.resolve(__dirname, distributionFolderName),
-    filename: '[name]-[hash].js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      }
+  const webpackConfig = {
+    entry: {
+      bundle: "./src/index.js",
+      sw: "./src/serviceWorker/register.js"
+    },
+    output: {
+      path: path.resolve(__dirname, distributionFolderName),
+      filename: isDev ? "[name].js" : "[name]-[hash].js"
+    },
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
+            "sass-loader"
+          ]
+        }
+      ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: "NewsFeed",
+        template: "./src/index.html"
+      }),
+      new MiniCssExtractPlugin({
+        filename: "style.css"
+      }),
+      new CleanWebpackPlugin(distributionFolderName)
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'NewsFeed',
-      template: './src/index.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css'
-    }),
-    new CleanWebpackPlugin(distributionFolderName),
-  ]
+  };
+
+  return webpackConfig;
 };
