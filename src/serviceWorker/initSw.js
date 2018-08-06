@@ -1,3 +1,5 @@
+import './cacheFiles';
+
 const sw = navigator.serviceWorker;
 const swName = "sw.js";
 
