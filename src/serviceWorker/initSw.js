@@ -11,6 +11,4 @@ if ("serviceWorker" in navigator) {
     .catch(err => {
       console.log("Service worker failled to register\n", err);
     });
-} else {
-  console.log("Browser do not support service worker");
 }
