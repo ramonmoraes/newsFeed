@@ -1,5 +1,5 @@
 const cacheName = "newsFeed";
-const cachedFiles = ["index.html", "bundle.js", "style.css"];
+const cachedFiles = ["bundle-*.js", "style-*.css"];
 
 self.addEventListener("install", ev => {
   ev.waitUntil(caches.open(cacheName).then(cache => cache.addAll(cachedFiles)));
