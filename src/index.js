@@ -1,6 +1,5 @@
 import "./scss/base.scss";
 import CardSnippet from "./components/CardSnippet";
-import initSw from "./serviceWorker/initSw";
 
 const appendToFeed = ele => {
   const feed = document.querySelector(".AppShell-feed");
@@ -25,5 +24,3 @@ const mockData = [
 ];
 
 mockData.forEach(card => appendToFeed(CardSnippet(card)));
-
-initSw();
