@@ -38,7 +38,7 @@ module.exports = (_, argv) => {
         template: "./src/index.html"
       }),
       new MiniCssExtractPlugin({
-        filename: isDev ? "style.js" : "style-[hash].css"
+        filename: isDev ? "style.css" : "style-[hash].css"
       }),
       new CleanWebpackPlugin(distributionFolderName)
     ]
