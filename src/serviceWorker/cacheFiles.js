@@ -1,20 +1,37 @@
 const cacheName = "newsFeed";
-const cachedFiles = ["bundle-*.js", "style-*.css"];
+const fontUrl = "https://fonts.googleapis.com/css?family=Encode+Sans+Condensed";
+const cachedFiles = ["bundle.js", "style.css", "index.html", fontUrl];
 
-self.addEventListener("install", ev => {
-  ev.waitUntil(caches.open(cacheName).then(cache => cache.addAll(cachedFiles)));
-});
+const preCache = () => {
+  return caches.open(cacheName).then(cache => {
+    console.log("Sw cached files");
+    return cache.addAll(cachedFiles);
+  });
+};
 
-self.addEventListener('activate', event => {
-  console.log('V1 now ready to handle fetches!');
-});
+const networkFirst = (evt, timeoutDelay = 400) => {
+  return fromNetwork(evt.request, timeoutDelay)
+  .catch(fromCache(evt.request));
+};
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
-});
+const fromNetwork = (request, timeout) => {
+  return new Promise((resolve, reject) => {
+    const timeoutId = setTimeout(reject, timeout);
+    fetch(request).then(response => {
+      clearTimeout(timeoutId);
+      resolve(response);
+    }, reject);
+  });
+};
 
+const fromCache = request => {
+  return caches
+    .open(cacheName)
+    .then(cache =>
+      cache
+        .match(request)
+        .then(matching => matching || Promise.reject("no-match"))
+    );
+};
 
+export { preCache, networkFirst };

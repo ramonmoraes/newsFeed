@@ -1,16 +1,16 @@
-import './cacheFiles';
+import "./events";
 
 const sw = navigator.serviceWorker;
 const swName = "sw.js";
 
-const initSw = () => {
-  if ("serviceWorker" in navigator) {
-    sw.register(swName, { scope: "./" }).then(registration => {
-      console.log("sw was registed\n", registration);
+if ("serviceWorker" in navigator) {
+  sw.register(swName, { scope: "./" })
+    .then(() => {
+      console.log("Sw was registered");
+    })
+    .catch(err => {
+      console.log("Service worker failled to register\n", err);
     });
-  } else {
-    console.log("Could not register service worker");
-  }
-};
-
-export default initSw;
+} else {
+  console.log("Browser do not support service worker");
+}
