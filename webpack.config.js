@@ -9,7 +9,7 @@ module.exports = (_, argv) => {
   const env = argv.mode || "development";
   const isDev = env === "development";
   console.log("The env mode was setted to: " + env + "\n");
-
+  
   const webpackConfig = {
     entry: {
       bundle: "./src/index.js",
@@ -17,7 +17,7 @@ module.exports = (_, argv) => {
     },
     output: {
       path: path.resolve(__dirname, distributionFolderName),
-      filename: isDev ? "[name]-.js" : "[name]-[hash].js",
+      filename: isDev ? "[name].js" : "[name]-[hash].js",
       globalObject: 'this',
     },
     module: {
@@ -38,7 +38,7 @@ module.exports = (_, argv) => {
         template: "./src/index.html"
       }),
       new MiniCssExtractPlugin({
-        filename: isDev ? "style-.js" : "style-[hash].css"
+        filename: isDev ? "style.js" : "style-[hash].css"
       }),
       new CleanWebpackPlugin(distributionFolderName)
     ]
